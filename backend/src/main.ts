@@ -9,9 +9,9 @@ async function bootstrap() {
     whitelist: true,
     forbidNonWhitelisted: true,
     transform: true,
-  }));
+    }),
   
-  // CRITICAL CORS FIX - This must be EXACTLY this
+  
   app.enableCors({
     origin: 'http://localhost:3000',
     credentials: true,

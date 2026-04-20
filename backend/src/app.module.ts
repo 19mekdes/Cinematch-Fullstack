@@ -19,7 +19,7 @@ import { ReviewsModule } from './modules/reviews/reviews.module';  // ADD THIS L
     UsersModule,
     MoviesModule,
     WatchlistModule,
-    ReviewsModule,  // ADD THIS LINE
+    ReviewsModule,  
   ],
   controllers: [AppController],
   providers: [AppService],

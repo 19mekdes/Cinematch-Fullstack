@@ -1,7 +1,6 @@
 'use client';
 
 import { Inter } from 'next/font/google';
-import './globals.css';
 import Link from 'next/link';
 import { Film, Home, Heart, LogIn, LogOut } from 'lucide-react';
 import { useState, useEffect } from 'react';

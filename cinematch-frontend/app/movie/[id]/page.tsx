@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Star, Calendar, Clock, Heart, ArrowLeft, Play, X } from 'lucide-react';
 import ReviewSection from '@/components/reviews/ReviewSection';
-
 interface MovieDetails {
   id: number;
   title: string;
@@ -20,7 +19,6 @@ interface MovieDetails {
   genres: { id: number; name: string }[];
   tagline: string;
 }
-
 interface Video {
   id: string;
   key: string;

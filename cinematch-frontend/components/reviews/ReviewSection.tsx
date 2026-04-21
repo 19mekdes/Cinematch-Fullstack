@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Star, ThumbsUp } from 'lucide-react';
-
 interface Review {
   id: number;
   userId: number;
@@ -331,7 +330,7 @@ export default function ReviewSection({ movieId, token }: ReviewSectionProps) {
           </div>
         </div>
       ) : (
-        // User's Existing Review
+        
         <div className="border-t border-gray-200 pt-6 mt-4">
           <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
             <div className="flex justify-between items-start">

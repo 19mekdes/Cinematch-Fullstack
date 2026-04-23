@@ -1,5 +1,4 @@
 ﻿'use client';
-
 import { useState, useEffect } from 'react';
 import { Star, ThumbsUp } from 'lucide-react';
 interface Review {
@@ -16,7 +15,6 @@ interface Review {
     avatarUrl: string | null;
   };
 }
-
 interface ReviewSectionProps {
   movieId: number;
   token: string | null;

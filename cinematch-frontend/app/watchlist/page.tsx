@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Trash2, Star, Film } from 'lucide-react';
-
 interface WatchlistMovie {
   id: number;
   movieId: number;

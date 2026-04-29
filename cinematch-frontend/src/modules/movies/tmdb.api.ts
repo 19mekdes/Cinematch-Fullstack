@@ -62,7 +62,6 @@ export class TmdbApi {
     return response.data;
   }
 
-  // NEW: Get movie videos/trailers
   async getMovieVideos(movieId: number) {
     const response = await this.api.get(`/movie/${movieId}/videos`);
     return response.data;

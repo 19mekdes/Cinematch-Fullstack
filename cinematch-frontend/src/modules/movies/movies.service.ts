@@ -29,7 +29,6 @@ export class MoviesService {
     return this.tmdbApi.searchMovies(query, page);
   }
 
-  // NEW: Get movie videos/trailers
   async getMovieVideos(id: number) {
     return this.tmdbApi.getMovieVideos(id);
   }

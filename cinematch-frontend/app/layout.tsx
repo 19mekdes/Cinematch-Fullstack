@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
-
 export default function RootLayout({
   children,
 }: {

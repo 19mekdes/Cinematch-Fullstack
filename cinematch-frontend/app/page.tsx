@@ -343,7 +343,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Pagination Controls */}
+          
             {totalPages > 1 && (
               <div className="flex justify-center items-center gap-2 mt-12">
                 <button

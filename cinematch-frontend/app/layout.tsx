@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Film, Home, Heart, LogIn, LogOut } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({

@@ -2,14 +2,14 @@
 
 export class CreateReviewDto {
   @IsInt()
-  movieId: number;
+  movieId!: number;
 
   @IsInt()
   @Min(1)
   @Max(5)
-  rating: number;
+  rating!: number;
 
   @IsString()
   @MinLength(3)
-  comment: string;
+  comment!: string;
 }

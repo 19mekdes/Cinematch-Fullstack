@@ -1,4 +1,16 @@
-﻿import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards, Request, HttpCode, HttpStatus } from '@nestjs/common';
+﻿import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  UseGuards,
+  Request,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ReviewsService } from './reviews.service';
 import { CreateReviewDto } from './dto/create-review.dto';
@@ -32,7 +44,10 @@ export class ReviewsController {
   @Get('my/:movieId')
   @UseGuards(AuthGuard('jwt'))
   async getUserReview(@Request() req, @Param('movieId') movieId: string) {
-    const review = await this.reviewsService.getUserReview(req.user.id, parseInt(movieId));
+    const review = await this.reviewsService.getUserReview(
+      req.user.id,
+      parseInt(movieId),
+    );
     return review;
   }
 

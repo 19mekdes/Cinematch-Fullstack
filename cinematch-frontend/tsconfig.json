@@ -22,6 +22,7 @@
         "name": "next"
       }
     ],
+    "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": [
         "./*"
@@ -37,6 +38,9 @@
     "**/*.mts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src",
+    "test",
+    "prisma"
   ]
 }

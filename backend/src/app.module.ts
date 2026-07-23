@@ -7,7 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { MoviesModule } from './modules/movies/movies.module';
 import { WatchlistModule } from './modules/watchlist/watchlist.module';
-import { ReviewsModule } from './modules/reviews/reviews.module';  // ADD THIS LINE
+import { ReviewsModule } from './modules/reviews/reviews.module'; // ADD THIS LINE
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { ReviewsModule } from './modules/reviews/reviews.module';  // ADD THIS L
     UsersModule,
     MoviesModule,
     WatchlistModule,
-    ReviewsModule,  
+    ReviewsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

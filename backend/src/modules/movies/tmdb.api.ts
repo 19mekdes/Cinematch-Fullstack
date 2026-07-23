@@ -11,7 +11,7 @@ export class TmdbApi {
     const apiKey = this.configService.get<string>('TMDB_API_KEY');
     const baseUrl = this.configService.get<string>('TMDB_BASE_URL');
     const imageUrl = this.configService.get<string>('TMDB_IMAGE_BASE_URL');
-    
+
     if (!apiKey) {
       throw new Error('TMDB_API_KEY is not defined in environment variables');
     }
@@ -19,9 +19,11 @@ export class TmdbApi {
       throw new Error('TMDB_BASE_URL is not defined in environment variables');
     }
     if (!imageUrl) {
-      throw new Error('TMDB_IMAGE_BASE_URL is not defined in environment variables');
+      throw new Error(
+        'TMDB_IMAGE_BASE_URL is not defined in environment variables',
+      );
     }
-    
+
     this.api = axios.create({
       baseURL: baseUrl,
       params: {
@@ -38,17 +40,23 @@ export class TmdbApi {
   }
 
   async getTopRatedMovies(page: number = 1) {
-    const response = await this.api.get('/movie/top_rated', { params: { page } });
+    const response = await this.api.get('/movie/top_rated', {
+      params: { page },
+    });
     return response.data;
   }
 
   async getUpcomingMovies(page: number = 1) {
-    const response = await this.api.get('/movie/upcoming', { params: { page } });
+    const response = await this.api.get('/movie/upcoming', {
+      params: { page },
+    });
     return response.data;
   }
 
   async getNowPlayingMovies(page: number = 1) {
-    const response = await this.api.get('/movie/now_playing', { params: { page } });
+    const response = await this.api.get('/movie/now_playing', {
+      params: { page },
+    });
     return response.data;
   }
 
@@ -58,7 +66,9 @@ export class TmdbApi {
   }
 
   async searchMovies(query: string, page: number = 1) {
-    const response = await this.api.get('/search/movie', { params: { query, page } });
+    const response = await this.api.get('/search/movie', {
+      params: { query, page },
+    });
     return response.data;
   }
 

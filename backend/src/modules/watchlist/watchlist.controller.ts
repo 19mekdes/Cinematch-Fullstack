@@ -1,4 +1,13 @@
-﻿import { Controller, Get, Post, Delete, Body, Param, UseGuards, Request } from '@nestjs/common';
+﻿import {
+  Controller,
+  Get,
+  Post,
+  Delete,
+  Body,
+  Param,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { WatchlistService } from './watchlist.service';
 
@@ -19,6 +28,9 @@ export class WatchlistController {
 
   @Delete(':movieId')
   async removeFromWatchlist(@Request() req, @Param('movieId') movieId: string) {
-    return this.watchlistService.removeFromWatchlist(req.user.id, parseInt(movieId));
+    return this.watchlistService.removeFromWatchlist(
+      req.user.id,
+      parseInt(movieId),
+    );
   }
 }

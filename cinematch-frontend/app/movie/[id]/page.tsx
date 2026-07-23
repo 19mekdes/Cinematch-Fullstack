@@ -175,18 +175,18 @@ export default function MovieDetailPage() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="flex justify-center items-center min-h-screen bg-slate-900">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
       </div>
     );
   }
 
   if (error || !movie) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Movie Not Found</h1>
-          <Link href="/" className="text-blue-600 hover:underline">
+          <h1 className="text-2xl font-bold text-white mb-4">Movie Not Found</h1>
+          <Link href="/" className="text-purple-400 hover:text-purple-300 transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -195,7 +195,7 @@ export default function MovieDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-900">
       {/* Trailer Modal */}
       {showTrailer && trailerKey && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
@@ -232,9 +232,9 @@ export default function MovieDetailPage() {
             priority
           />
         ) : (
-          <div className="w-full h-full bg-linear-to-r from-blue-600 to-purple-700" />
+          <div className="w-full h-full bg-gradient-to-r from-blue-600 to-purple-700" />
         )}
-        <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
       </div>
 
       {/* Movie Info Container */}
@@ -242,7 +242,7 @@ export default function MovieDetailPage() {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Poster */}
           <div className="w-48 md:w-64 shrink-0 mx-auto md:mx-0">
-            <div className="relative aspect-2/3 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[2/3] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src={getImageUrl(movie.poster_path, 'w500')}
                 alt={movie.title}

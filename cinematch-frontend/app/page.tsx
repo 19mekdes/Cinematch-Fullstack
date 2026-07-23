@@ -151,7 +151,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       
       {/* Hero Section - CENTERED */}
       <div className="relative h-[80vh] w-full overflow-hidden">
@@ -164,23 +164,23 @@ export default function HomePage() {
               className="object-cover brightness-40"
               priority
             />
-            <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
-            <div className="absolute inset-0 bg-linear-to-b from-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent" />
           </>
         ) : (
-          <div className="absolute inset-0 bg-linear-to-br from-purple-900 via-blue-900 to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900" />
         )}
         
         {/* Centered Hero Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
           <div className="max-w-4xl">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-16 h-16 bg-linear-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl animate-pulse">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl animate-pulse">
                 <Film className="w-9 h-9 text-white" />
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-linear-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-6">
               CineMatch
             </h1>
             
@@ -206,7 +206,7 @@ export default function HomePage() {
               </div>
               <button
                 onClick={handleSearch}
-                className="px-8 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
               >
                 <Search className="w-5 h-5" />
                 Search
@@ -233,7 +233,7 @@ export default function HomePage() {
               onClick={() => handleCategoryChange('popular')}
               className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
                 category === 'popular'
-                  ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
               }`}
             >
@@ -244,7 +244,7 @@ export default function HomePage() {
               onClick={() => handleCategoryChange('top_rated')}
               className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
                 category === 'top_rated'
-                  ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
               }`}
             >
@@ -255,7 +255,7 @@ export default function HomePage() {
               onClick={() => handleCategoryChange('upcoming')}
               className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
                 category === 'upcoming'
-                  ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
               }`}
             >
@@ -266,7 +266,7 @@ export default function HomePage() {
               onClick={() => handleCategoryChange('now_playing')}
               className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
                 category === 'now_playing'
-                  ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
               }`}
             >
@@ -314,7 +314,7 @@ export default function HomePage() {
               {movies.map((movie) => (
                 <Link key={movie.id} href={`/movie/${movie.id}`}>
                   <div className="group relative bg-slate-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl">
-                    <div className="relative aspect-2/3 overflow-hidden">
+                    <div className="relative aspect-[2/3] overflow-hidden">
                       <Image
                         src={getImageUrl(movie.poster_path)}
                         alt={movie.title}
@@ -322,7 +322,7 @@ export default function HomePage() {
                         sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute top-2 right-2 bg-black/70 backdrop-blur-sm text-white px-2 py-1 rounded-md text-sm flex items-center gap-1">
                         <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                         <span>{movie.vote_average?.toFixed(1) || 'N/A'}</span>
@@ -380,7 +380,7 @@ export default function HomePage() {
                           onClick={() => goToPage(i)}
                           className={`px-3 py-1 rounded-lg transition-all ${
                             currentPage === i
-                              ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                               : 'bg-white/10 text-white hover:bg-white/20'
                           }`}
                         >

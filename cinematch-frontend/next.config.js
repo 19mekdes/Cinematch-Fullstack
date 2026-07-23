@@ -20,10 +20,7 @@ const nextConfig = {
     ],
   },
   
-  // Turbopack configuration
-  turbopack: {
-    root: path.join(__dirname),
-  },
+  // Note: turbopack config removed to avoid Windows absolute-path ESM issues
 };
 
 module.exports = nextConfig;

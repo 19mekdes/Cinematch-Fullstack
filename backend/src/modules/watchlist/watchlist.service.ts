@@ -1,18 +1,25 @@
-﻿import { Injectable, ConflictException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  ConflictException,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 
 @Injectable()
 export class WatchlistService {
   constructor(private prisma: PrismaService) {}
 
-  async addToWatchlist(userId: number, movieData: {
-    movieId: number;
-    movieTitle: string;
-    moviePosterPath?: string;
-    movieRating?: number;
-    movieReleaseDate?: string;
-    notes?: string;
-  }) {
+  async addToWatchlist(
+    userId: number,
+    movieData: {
+      movieId: number;
+      movieTitle: string;
+      moviePosterPath?: string;
+      movieRating?: number;
+      movieReleaseDate?: string;
+      notes?: string;
+    },
+  ) {
     const existing = await this.prisma.watchlist.findUnique({
       where: {
         userId_movieId: {
@@ -50,7 +57,7 @@ export class WatchlistService {
         },
       });
       return { message: 'Movie removed from watchlist' };
-    } catch (error) {
+    } catch {
       throw new NotFoundException('Movie not found in watchlist');
     }
   }

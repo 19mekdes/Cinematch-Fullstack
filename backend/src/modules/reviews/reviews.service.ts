@@ -1,11 +1,21 @@
-﻿import { Injectable, NotFoundException, ConflictException, BadRequestException } from '@nestjs/common';
+﻿import {
+  Injectable,
+  NotFoundException,
+  ConflictException,
+  BadRequestException,
+} from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 
 @Injectable()
 export class ReviewsService {
   constructor(private prisma: PrismaService) {}
 
-  async createReview(userId: number, movieId: number, rating: number, comment: string) {
+  async createReview(
+    userId: number,
+    movieId: number,
+    rating: number,
+    comment: string,
+  ) {
     // Validate inputs
     if (!movieId) {
       throw new BadRequestException('Movie ID is required');
@@ -71,7 +81,7 @@ export class ReviewsService {
       },
       orderBy: { createdAt: 'desc' },
     });
-    
+
     return reviews;
   }
 
@@ -97,11 +107,16 @@ export class ReviewsService {
         },
       },
     });
-    
+
     return review;
   }
 
-  async updateReview(userId: number, movieId: number, rating?: number, comment?: string) {
+  async updateReview(
+    userId: number,
+    movieId: number,
+    rating?: number,
+    comment?: string,
+  ) {
     const review = await this.prisma.review.findUnique({
       where: {
         userId_movieId: {

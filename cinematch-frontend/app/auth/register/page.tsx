@@ -49,13 +49,13 @@ export default function RegisterPage() {
           <Film className="w-12 h-12 text-blue-600" />
         </div>
         <h2 className="text-2xl font-bold text-center mb-6">Register for CineMatch</h2>
-        
+
         {error && (
           <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
             {error}
           </div>
         )}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Name</label>
@@ -67,7 +67,7 @@ export default function RegisterPage() {
               required
             />
           </div>
-          
+
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Email</label>
             <input
@@ -78,7 +78,7 @@ export default function RegisterPage() {
               required
             />
           </div>
-          
+
           <div className="mb-6">
             <label className="block text-gray-700 mb-2">Password</label>
             <input
@@ -89,7 +89,7 @@ export default function RegisterPage() {
               required
             />
           </div>
-          
+
           <button
             type="submit"
             disabled={loading}
@@ -98,7 +98,7 @@ export default function RegisterPage() {
             {loading ? 'Registering...' : 'Register'}
           </button>
         </form>
-        
+
         <p className="text-center text-gray-600 mt-4">
           Already have an account?{' '}
           <Link href="/auth/login" className="text-blue-600 hover:underline">

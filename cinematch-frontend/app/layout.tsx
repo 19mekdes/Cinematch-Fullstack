@@ -2,7 +2,7 @@
 
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
-import { Film, Home, Heart, LogIn, LogOut } from 'lucide-react';
+import { Film, Home, Heart, LogIn, LogOut, UserPlus } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import './globals.css';
@@ -70,13 +70,22 @@ export default function RootLayout({
                     <span className="hidden sm:inline">Logout</span>
                   </button>
                 ) : (
-                  <Link
-                    href="/auth/login"
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-                  >
-                    <LogIn className="w-5 h-5" />
-                    <span className="hidden sm:inline">Login</span>
-                  </Link>
+                  <>
+                    <Link
+                      href="/auth/register"
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                    >
+                      <UserPlus className="w-5 h-5" />
+                      <span className="hidden sm:inline">Register</span>
+                    </Link>
+                    <Link
+                      href="/auth/login"
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                    >
+                      <LogIn className="w-5 h-5" />
+                      <span className="hidden sm:inline">Login</span>
+                    </Link>
+                  </>
                 )}
               </div>
             </div>

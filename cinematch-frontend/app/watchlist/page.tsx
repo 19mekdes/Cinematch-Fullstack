@@ -24,7 +24,7 @@ export default function WatchlistPage() {
     // Get token from localStorage
     const storedToken = localStorage.getItem('access_token');
     setToken(storedToken);
-    
+
     if (storedToken) {
       fetchWatchlist(storedToken);
     } else {
@@ -40,7 +40,7 @@ export default function WatchlistPage() {
           'Content-Type': 'application/json',
         },
       });
-      
+
       if (response.ok) {
         const data = await response.json();
         setWatchlist(data);
@@ -54,7 +54,7 @@ export default function WatchlistPage() {
 
   const removeFromWatchlist = async (movieId: number) => {
     if (!token) return;
-    
+
     try {
       const response = await fetch(`${API_URL}/watchlist/${movieId}`, {
         method: 'DELETE',
@@ -63,7 +63,7 @@ export default function WatchlistPage() {
           'Content-Type': 'application/json',
         },
       });
-      
+
       if (response.ok) {
         setWatchlist(watchlist.filter(item => item.movieId !== movieId));
       }
@@ -124,7 +124,7 @@ export default function WatchlistPage() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold mb-8">My Watchlist</h1>
-        
+
         <div className="grid gap-4">
           {watchlist.map((movie) => (
             <div key={movie.id} className="bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow">
@@ -140,7 +140,7 @@ export default function WatchlistPage() {
                     />
                   </div>
                 </Link>
-                
+
                 {/* Info */}
                 <div className="flex-1">
                   <Link href={`/movie/${movie.movieId}`}>
@@ -148,7 +148,7 @@ export default function WatchlistPage() {
                       {movie.movieTitle}
                     </h2>
                   </Link>
-                  
+
                   <div className="flex gap-4 text-sm text-gray-600 mt-1">
                     <span>{movie.movieReleaseDate?.split('-')[0] || 'TBA'}</span>
                     <div className="flex items-center gap-1">
@@ -156,12 +156,12 @@ export default function WatchlistPage() {
                       <span>{movie.movieRating?.toFixed(1) || 'N/A'}</span>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-500 text-xs mt-2">
                     Added: {new Date(movie.addedAt).toLocaleDateString()}
                   </p>
                 </div>
-                
+
                 {/* Remove Button */}
                 <button
                   onClick={() => removeFromWatchlist(movie.movieId)}

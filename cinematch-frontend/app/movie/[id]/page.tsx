@@ -32,7 +32,7 @@ const API_URL = 'http://localhost:4000/api';
 export default function MovieDetailPage() {
   const params = useParams();
   const movieId = params?.id as string;
-  
+
   const [movie, setMovie] = useState<MovieDetails | null>(null);
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ export default function MovieDetailPage() {
   useEffect(() => {
     const storedToken = localStorage.getItem('access_token');
     setToken(storedToken);
-    
+
     if (movieId) {
       fetchMovieDetails();
       fetchMovieVideos();
@@ -53,7 +53,7 @@ export default function MovieDetailPage() {
         checkWatchlistStatus(storedToken);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   const fetchMovieDetails = async () => {
@@ -62,7 +62,7 @@ export default function MovieDetailPage() {
       if (!response.ok) throw new Error('Movie not found');
       const data = await response.json();
       setMovie(data);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError('Failed to load movie details');
     } finally {
@@ -79,7 +79,7 @@ export default function MovieDetailPage() {
           (video: Video) => video.site === 'YouTube' && (video.type === 'Trailer' || video.type === 'Teaser')
         ) || [];
         setVideos(trailers);
-        
+
         if (trailers.length > 0) {
           setTrailerKey(trailers[0].key);
         }
@@ -259,7 +259,7 @@ export default function MovieDetailPage() {
               <ArrowLeft className="w-5 h-5" />
               Back to Home
             </Link>
-            
+
             <h1 className="text-3xl md:text-5xl font-bold mb-2">{movie.title}</h1>
             {movie.tagline && (
               <p className="text-lg text-white/80 italic mb-4">{movie.tagline}</p>
@@ -279,7 +279,7 @@ export default function MovieDetailPage() {
                   <span>{new Date(movie.release_date).getFullYear()}</span>
                 </div>
               )}
-               
+
               {movie.runtime > 0 && (
                 <div className="flex items-center gap-1">
                   <Clock className="w-5 h-5" />
@@ -317,14 +317,13 @@ export default function MovieDetailPage() {
                   Watch Trailer
                 </button>
               )}
-              
+
               <button
                 onClick={isInWatchlist ? removeFromWatchlist : addToWatchlist}
-                className={`px-6 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2 ${
-                  isInWatchlist
+                className={`px-6 py-2 rounded-lg font-semibold transition-colors flex items-center gap-2 ${isInWatchlist
                     ? 'bg-red-600 hover:bg-red-700'
                     : 'bg-blue-600 hover:bg-blue-700'
-                }`}
+                  }`}
               >
                 <Heart className={`w-5 h-5 ${isInWatchlist ? 'fill-white' : ''}`} />
                 {isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}

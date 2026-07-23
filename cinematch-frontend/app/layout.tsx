@@ -40,7 +40,7 @@ export default function RootLayout({
                 <Film className="w-8 h-8 text-blue-600" />
                 <span className="text-xl font-bold text-gray-800">CineMatch</span>
               </Link>
-              
+
               {/* Navigation Links */}
               <div className="flex gap-4 items-center">
                 <Link
@@ -50,7 +50,7 @@ export default function RootLayout({
                   <Home className="w-5 h-5" />
                   <span className="hidden sm:inline">Home</span>
                 </Link>
-                
+
                 {isLoggedIn && (
                   <Link
                     href="/watchlist"
@@ -60,7 +60,7 @@ export default function RootLayout({
                     <span className="hidden sm:inline">Watchlist</span>
                   </Link>
                 )}
-                
+
                 {isLoggedIn ? (
                   <button
                     onClick={handleLogout}
@@ -82,7 +82,7 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        
+
         {children}
       </body>
     </html>

@@ -71,12 +71,12 @@ export default function ReviewSection({ movieId, token }: ReviewSectionProps) {
 
   const fetchUserReview = async () => {
     if (!token) return;
-    
+
     try {
       const response = await fetch(`${API_URL}/reviews/my/${movieId}`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
-      
+
       const text = await response.text();
       if (text && text.length > 0) {
         try {
@@ -97,7 +97,7 @@ export default function ReviewSection({ movieId, token }: ReviewSectionProps) {
 
   const handleSubmitReview = async () => {
     setErrorMsg('');
-    
+
     if (!token) {
       alert('Please login to leave a review');
       window.location.href = '/auth/login';
@@ -247,11 +247,10 @@ export default function ReviewSection({ movieId, token }: ReviewSectionProps) {
             className={interactive ? 'cursor-pointer' : 'cursor-default'}
           >
             <Star
-              className={`w-5 h-5 ${
-                star <= ratingValue
+              className={`w-5 h-5 ${star <= ratingValue
                   ? 'fill-yellow-500 text-yellow-500'
                   : 'text-gray-400'
-              } ${interactive ? 'hover:scale-110 transition-transform' : ''}`}
+                } ${interactive ? 'hover:scale-110 transition-transform' : ''}`}
             />
           </button>
         ))}
@@ -328,7 +327,7 @@ export default function ReviewSection({ movieId, token }: ReviewSectionProps) {
           </div>
         </div>
       ) : (
-        
+
         <div className="border-t border-gray-200 pt-6 mt-4">
           <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
             <div className="flex justify-between items-start">

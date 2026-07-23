@@ -34,7 +34,7 @@ export default function HomePage() {
     } else {
       fetchMovies();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, category, searchQuery]);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function HomePage() {
         default:
           url = `${API_URL}/movies/popular?page=${currentPage}`;
       }
-      
+
       const response = await fetch(url);
       if (!response.ok) throw new Error('Failed to fetch');
       const data = await response.json();
@@ -92,7 +92,7 @@ export default function HomePage() {
       fetchMovies();
       return;
     }
-    
+
     setLoading(true);
     try {
       const response = await fetch(`${API_URL}/movies/search?query=${searchQuery}&page=${currentPage}`);
@@ -152,7 +152,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      
+
       {/* Hero Section - CENTERED */}
       <div className="relative h-[80vh] w-full overflow-hidden">
         {featuredMovie && featuredMovie.backdrop_path ? (
@@ -170,7 +170,7 @@ export default function HomePage() {
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-slate-900" />
         )}
-        
+
         {/* Centered Hero Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
           <div className="max-w-4xl">
@@ -179,19 +179,19 @@ export default function HomePage() {
                 <Film className="w-9 h-9 text-white" />
               </div>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-6">
               CineMatch
             </h1>
-            
+
             <p className="text-xl md:text-2xl lg:text-3xl text-purple-200 mb-4">
               Find your next favorite movie
             </p>
-            
+
             <p className="text-gray-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
               Discover thousands of movies, create your watchlist, and get personalized recommendations tailored just for you.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto w-full">
               <div className="flex-1 relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -212,11 +212,11 @@ export default function HomePage() {
                 Search
               </button>
             </div>
-            
-            
+
+
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
@@ -231,44 +231,40 @@ export default function HomePage() {
           <div className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
             <button
               onClick={() => handleCategoryChange('popular')}
-              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
-                category === 'popular'
+              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${category === 'popular'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
-              }`}
+                }`}
             >
               <TrendingUp className="w-4 h-4" />
               Trending
             </button>
             <button
               onClick={() => handleCategoryChange('top_rated')}
-              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
-                category === 'top_rated'
+              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${category === 'top_rated'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
-              }`}
+                }`}
             >
               <Star className="w-4 h-4" />
               Top Rated
             </button>
             <button
               onClick={() => handleCategoryChange('upcoming')}
-              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
-                category === 'upcoming'
+              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${category === 'upcoming'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
-              }`}
+                }`}
             >
               <Calendar className="w-4 h-4" />
               Coming Soon
             </button>
             <button
               onClick={() => handleCategoryChange('now_playing')}
-              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
-                category === 'now_playing'
+              className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${category === 'now_playing'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                   : 'text-gray-300 hover:bg-white/10'
-              }`}
+                }`}
             >
               <Film className="w-4 h-4" />
               In Theaters
@@ -293,7 +289,7 @@ export default function HomePage() {
             Page {currentPage} of {totalPages}
           </div>
         </div>
-        
+
         {loading ? (
           <div className="flex justify-center py-20">
             <div className="relative">
@@ -343,7 +339,7 @@ export default function HomePage() {
               ))}
             </div>
 
-          
+
             {totalPages > 1 && (
               <div className="flex justify-center items-center gap-2 mt-12">
                 <button
@@ -353,13 +349,13 @@ export default function HomePage() {
                 >
                   ← Previous
                 </button>
-                
+
                 <div className="flex gap-1">
                   {(() => {
                     const pages = [];
                     const startPage = Math.max(1, currentPage - 2);
                     const endPage = Math.min(totalPages, startPage + 4);
-                    
+
                     if (startPage > 1) {
                       pages.push(
                         <button
@@ -372,23 +368,22 @@ export default function HomePage() {
                       );
                       if (startPage > 2) pages.push(<span key="dots1" className="px-2 text-gray-400">...</span>);
                     }
-                    
+
                     for (let i = startPage; i <= endPage; i++) {
                       pages.push(
                         <button
                           key={i}
                           onClick={() => goToPage(i)}
-                          className={`px-3 py-1 rounded-lg transition-all ${
-                            currentPage === i
+                          className={`px-3 py-1 rounded-lg transition-all ${currentPage === i
                               ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                               : 'bg-white/10 text-white hover:bg-white/20'
-                          }`}
+                            }`}
                         >
                           {i}
                         </button>
                       );
                     }
-                    
+
                     if (endPage < totalPages) {
                       if (endPage < totalPages - 1) pages.push(<span key="dots2" className="px-2 text-gray-400">...</span>);
                       pages.push(
@@ -404,7 +399,7 @@ export default function HomePage() {
                     return pages;
                   })()}
                 </div>
-                
+
                 <button
                   onClick={() => goToPage(currentPage + 1)}
                   disabled={currentPage === totalPages}
@@ -417,7 +412,7 @@ export default function HomePage() {
           </>
         )}
       </div>
-      
+
       {/* Footer */}
       <footer className="border-t border-white/10 py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
